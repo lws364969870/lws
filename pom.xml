@@ -11,6 +11,7 @@
     <modules>
         <module>lws-parent</module>
         <module>lws-common</module>
+        <module>lws-gencode</module>
     </modules>
 
 </project>
