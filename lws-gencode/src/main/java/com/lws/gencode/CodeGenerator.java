@@ -33,7 +33,7 @@ public class CodeGenerator {
     public static void main(String[] args) {
 
         //1、选择模块
-        ModulEnum module = ModulEnum.AUTH;
+        ModulEnum module = ModulEnum.SYSTEM;
 
         //2、项目路径
         String projectPath = "D:/workspace/lws" + File.separator + module.getUrl();
