@@ -8,9 +8,9 @@ spring:
     gateway:
       routes:
         - id: routea
-          uri: http://www.baidu.com
+          uri: /a/*
           predicates:
-            - Path=/xxx
+            - Path=/xxx/*
 
 eureka:
   instance:
