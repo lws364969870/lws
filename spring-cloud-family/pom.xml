@@ -16,6 +16,7 @@
         <module>spring-cloud-eureka-server-1.x</module>
         <module>spring-cloud-eureka-server-2.x</module>
         <module>spring-cloud-gateway-server</module>
+        <module>alibaba-nacos-server</module>
     </modules>
 
 </project>
