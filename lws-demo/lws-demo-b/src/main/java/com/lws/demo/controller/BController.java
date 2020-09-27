@@ -5,15 +5,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RequestMapping("/a")
+@RequestMapping("/b")
 @RestController
-public class AController {
+public class BController {
 
     @Value("${server.port}")
     private String port;
 
     @GetMapping("/test")
     public String test1() {
-        return "我是服务A，端口是" + port;
+        return "我是服务B，端口是" + port;
     }
 }
