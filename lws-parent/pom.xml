@@ -25,6 +25,8 @@
         <spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
 
         <spring-boot.version>2.1.2.RELEASE</spring-boot.version>
+        <alibaba-nacos-cloud.version>2.1.2.RELEASE</alibaba-nacos-cloud.version>
+        <alibaba-nacos-boot.version>0.2.1</alibaba-nacos-boot.version>
         <eureka.version>1.4.6.RELEASE</eureka.version>
         <openfeign.version>2.1.0.RELEASE</openfeign.version>
     </properties>

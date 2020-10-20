@@ -36,7 +36,7 @@ public class CodeGenerator {
         ModulEnum module = ModulEnum.SYSTEM;
 
         //2、项目路径
-        String projectPath = "D:/workspace/lws" + File.separator + module.getUrl();
+        String projectPath = "E:/workspace/lws" + File.separator + module.getUrl();
 
         /** 全局配置 */
         GlobalConfig globalConfig = new GlobalConfig();
@@ -54,7 +54,7 @@ public class CodeGenerator {
         /** 策略配置 */
         StrategyConfig strategyConfig = new StrategyConfig();
         //1、需要生成的表
-        strategyConfig.setInclude("sys_user");
+        strategyConfig.setInclude("system");
         //2、实体命名策略 - 驼峰
         strategyConfig.setNaming(NamingStrategy.underline_to_camel);
         //3、字段命名策略 - 驼峰
@@ -74,9 +74,9 @@ public class CodeGenerator {
         /** 数据库配置 */
         DataSourceConfig dataSourceConfig = new DataSourceConfig();
         dataSourceConfig.setDriverName("com.mysql.cj.jdbc.Driver");
-        dataSourceConfig.setUrl("jdbc:mysql://127.0.0.1:3306/lws?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC");
+        dataSourceConfig.setUrl("jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC");
         dataSourceConfig.setUsername("root");
-        dataSourceConfig.setPassword("admin");
+        dataSourceConfig.setPassword("root");
 
         /** 模板配置 */
         TemplateConfig templateConfig = new TemplateConfig();
