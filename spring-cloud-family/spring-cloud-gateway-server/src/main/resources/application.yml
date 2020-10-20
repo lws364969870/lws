@@ -4,27 +4,36 @@ server:
 spring:
   application:
     name: gateway-server
-  cloud:
-    gateway:
-      enable: true
-      routes:
-        # http://localhost:9200/route1/a/test  to  http://localhost:13001/a/test
-        - id: demo-a-route-1
-          uri: http://localhost:13001
-          predicates:
-            - Path=/route1/**
-          filters:
-            - StripPrefix=1
-
-        # http://localhost:9200/route2/b/test  to  http://localhost:13002/b/test
-        - id: demo-a-route-2
-          uri: lb://lws-demo-b #（lb代表从注册中心获取服务）(ws,wss运行WebsocketRoutingFilter)
-          predicates:
-            - Path=/route2/**
-          filters:
-            - StripPrefix=1
-            - auths
-
+#  cloud:
+#    gateway:
+##      enable: true
+#      routes:
+#        # http://localhost:9200/route1/a/test  to  http://localhost:13001/a/test
+#        - id: demo-a-route-1
+#          uri: http://localhost:13001
+#          predicates:
+#            - Path=/route1/**
+#          filters:
+#            - StripPrefix=1
+#
+#        # http://localhost:9200/route2/b/test  to  http://localhost:13002/b/test
+#        - id: demo-a-route-2
+#          uri: lb://lws-demo-b #（lb代表从注册中心获取服务）(ws,wss运行WebsocketRoutingFilter)
+#          predicates:
+#            - Path=/route2/**
+#          filters:
+#            - StripPrefix=1
+#            - auths
+#
+## 暴露端点
+#management:
+#  endpoint:
+#    gateway:
+#      enabled: true
+#  endpoints:
+#    web:
+#      exposure:
+#        include: gateway
 
 eureka:
   instance:
@@ -38,3 +47,13 @@ eureka:
     serviceUrl:
       # 注册中心地址
       defaultZone: http://${eureka.instance.hostname}:8762/eureka/
+
+# 暴露端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
