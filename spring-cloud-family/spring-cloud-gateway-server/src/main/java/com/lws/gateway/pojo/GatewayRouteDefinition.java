@@ -19,4 +19,14 @@ public class GatewayRouteDefinition {
     //路由执行的顺序
     private Integer order = 0;
     //此处省略get和set方法
+
+
+    public static void main(String[] args) {
+        String a = "abc:defg";
+        String b = "abc:";
+
+        System.out.println(a.startsWith(b));
+        System.out.println(b.startsWith(a));
+
+    }
 }

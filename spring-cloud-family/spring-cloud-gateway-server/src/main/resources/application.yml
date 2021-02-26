@@ -4,36 +4,40 @@ server:
 spring:
   application:
     name: gateway-server
-#  cloud:
-#    gateway:
-##      enable: true
-#      routes:
-#        # http://localhost:9200/route1/a/test  to  http://localhost:13001/a/test
-#        - id: demo-a-route-1
-#          uri: http://localhost:13001
-#          predicates:
-#            - Path=/route1/**
-#          filters:
-#            - StripPrefix=1
-#
-#        # http://localhost:9200/route2/b/test  to  http://localhost:13002/b/test
-#        - id: demo-a-route-2
-#          uri: lb://lws-demo-b #（lb代表从注册中心获取服务）(ws,wss运行WebsocketRoutingFilter)
-#          predicates:
-#            - Path=/route2/**
-#          filters:
-#            - StripPrefix=1
-#            - auths
-#
-## 暴露端点
-#management:
-#  endpoint:
-#    gateway:
-#      enabled: true
-#  endpoints:
-#    web:
-#      exposure:
-#        include: gateway
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password:
+    database: 4
+    timeout: 10000
+    jedis:
+      pool:
+        max-active: 300
+        max-idle: 100
+        min-idle: 10
+        max-wait: 10000
+  cloud:
+    gateway:
+#      enable: true
+      routes:
+        # http://localhost:9200/route1/a/test  to  http://localhost:13001/a/test
+        - id: demo-a-route-1
+          uri: http://localhost:13001/
+          predicates:
+            - Path=/route1/**
+            - Method=GET
+          filters:
+            - StripPrefix=1
+
+        # http://localhost:9200/route2/b/test  to  http://localhost:13002/b/test
+        - id: demo-a-route-2
+          uri: ws://lws-demo-b #（lb代表从注册中心获取服务）(ws,wss运行全局过滤器WebsocketRoutingFilter)
+          predicates:
+            - Path=/route1/**
+            - Method=POST
+          filters:
+            - StripPrefix=1
+            - auths
 
 eureka:
   instance:
