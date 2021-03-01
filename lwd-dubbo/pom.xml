@@ -19,6 +19,7 @@
         <java.version>1.8</java.version>
         <dubbo.version>2.7.8</dubbo.version>
         <skip_maven_deploy>true</skip_maven_deploy>
+        <spring-boot.version>2.3.7.RELEASE</spring-boot.version>
     </properties>
 
     <modules>
